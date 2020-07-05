@@ -16,7 +16,7 @@ Voici les différentes instructions pour faire marcher le programme correctement
 ## Installation :
 
 ### Utilisation
-Lancer le fichier *views.py* contenu dans le dossier flask_app, puis ouvrir la lien web affiché dans la console *http://localhost:5000/*
+Lancer le fichier *run.py* contenu dans la racine, puis ouvrir la lien web affiché dans la console *http://localhost:5000/*
 
 ### Fonctionnement
 Le site envoie des requêtes au micro programme qui ensuite passe des *requests* via GoogleMap et MediaWiki pour ensuite renvoyer les reponses et les afficher sur le site. 
@@ -25,10 +25,8 @@ Le site envoie des requêtes au micro programme qui ensuite passe des *requests*
 Les librairies necessaires sont trouvables dans le fichier requirements.txt
 
 ## Tâches principales restantes:
-* Parcourir un fichier Json pour les stop-words
 * Faire le diaporama
-* Finir le compte-rendu
-* Finir la Pep8 avec flake8
+* Créer variables d'environnement pour les API's Keys
 
 # Auteur et Contribution:
 J'ai développé ce programme dans le cadre d'une formation sur Openclassrooms.Par conséquent toute pull request avec du code sera refusé. Ouvrez plutôt une issue pour signaler un bug, une faute d'orthographe ou pour simplement donner un conseil.
