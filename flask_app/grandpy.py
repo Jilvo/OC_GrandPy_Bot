@@ -1,7 +1,6 @@
 """ V0.9--cleaning coding"""
 import requests
 import os
-# from boto.s3.connection import S3Connection
 from .parse_question import parsing
 
 
