@@ -18,6 +18,8 @@ Voici les différentes instructions pour faire marcher le programme correctement
 ### Utilisation
 Lancer le fichier *run.py* contenu dans la racine, puis ouvrir la lien web affiché dans la console *http://localhost:5000/*
 
+Ou aller directement sur ce lien https://grandpy-jilvo.herokuapp.com/
+
 ### Fonctionnement
 Le site envoie des requêtes au micro programme qui ensuite passe des *requests* via GoogleMap et MediaWiki pour ensuite renvoyer les reponses et les afficher sur le site. 
 
