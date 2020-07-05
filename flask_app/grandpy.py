@@ -12,7 +12,7 @@ class req_grandpy:
         self.dict_return_wiki = {}
         self.pageid = ""
         self.right_place = ""
-        # self.api_key = S3Connection(os.environ['GOOGLE_KEY'])
+        self.api_key = os.environ['GOOGLE_KEY'])
 
     def parse(self, user_raw_text):
         list_question = parsing(user_raw_text)
@@ -22,7 +22,7 @@ class req_grandpy:
         return_data = requests.get(
             "https://maps.googleapis.com/maps/api/geocode/json?address="
             + self.adress
-            + ",&key=AIzaSyAKfLjoRy19P25S1KUOorpwBJ-psQ5oRg4"
+            + ",&key=" + self.api_key + ""
         )
         return_data = return_data.json()
         for geometry in return_data["results"]:
