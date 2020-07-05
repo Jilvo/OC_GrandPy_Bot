@@ -11,7 +11,7 @@ class req_grandpy:
         self.dict_return_wiki = {}
         self.pageid = ""
         self.right_place = ""
-        self.api_key = os.environ['GOOGLE_KEY'])
+        self.api_key = os.environ['GOOGLE_KEY']
 
     def parse(self, user_raw_text):
         list_question = parsing(user_raw_text)
