@@ -3,7 +3,7 @@ import json
 from flask import Flask, render_template
 from flask_cors import CORS
 from flask import request as req
-from grandpy import req_grandpy
+from .grandpy import req_grandpy
 
 app = Flask(__name__)
 CORS(app=app)
