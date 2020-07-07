@@ -1,7 +1,7 @@
 """ V0.9--cleaning coding"""
 import requests
 import os
-from .parse_question import parsing
+from parse_question import parsing
 
 
 class req_grandpy:
@@ -59,6 +59,7 @@ class req_grandpy:
         self.pageid = place[1]["pageid"]
         print(self.pageid)
         print(self.right_place)
+        return self.dict_return_wiki
 
     def search_by_wiki_bio(self):
         wiki_information = requests.get(

@@ -9,7 +9,7 @@
 * Vous pouvez vous amuser à inventer plusieurs réponses différentes de la part de GrandPy mais ce n'est pas une obligation. Amusez-vous !
 
 # Comment accéder au site ?
-Tout ce passe ici 
+Tout ce passe ici https://grandpy-jilvo.herokuapp.com/
 
 # Comment faire marcher le programme ?
 Voici les différentes instructions pour faire marcher le programme correctement.
@@ -25,10 +25,6 @@ Le site envoie des requêtes au micro programme qui ensuite passe des *requests*
 
 ### Environnement virtuel
 Les librairies necessaires sont trouvables dans le fichier requirements.txt
-
-## Tâches principales restantes:
-* Faire le diaporama
-* Créer variables d'environnement pour les API's Keys
 
 # Auteur et Contribution:
 J'ai développé ce programme dans le cadre d'une formation sur Openclassrooms.Par conséquent toute pull request avec du code sera refusé. Ouvrez plutôt une issue pour signaler un bug, une faute d'orthographe ou pour simplement donner un conseil.
