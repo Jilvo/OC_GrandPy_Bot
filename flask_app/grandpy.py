@@ -1,7 +1,7 @@
 """ V0.9--cleaning coding"""
 import requests
 import os
-from .parse_question import parsing
+from parse_question import parsing
 
 
 class req_grandpy:

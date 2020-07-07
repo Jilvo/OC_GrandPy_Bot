@@ -1,8 +1,8 @@
 """ V0.9--cleaning coding"""
 import sys
 import os
-
-from flask_app.parse_question import parsing
+sys.path.append(f"{os.getcwd()}/flask_app/")
+from parse_question import parsing
 
 
 def test_parsing():
