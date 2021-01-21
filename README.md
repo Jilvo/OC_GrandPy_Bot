@@ -14,7 +14,9 @@ Tout se passe ici https://grandpy-jilvo.herokuapp.com/
 ## Comment faire marcher le programme ?
 Voici les différentes instructions pour faire marcher le programme correctement.
 ### Installation :
-
+````
+pip install -r OC_GrandPy_Bot/requirements.txt
+````
 #### Utilisation
 Lancer le fichier *run.py* contenu dans la racine, puis ouvrir la lien web affiché dans la console *http://localhost:5000/*
 
