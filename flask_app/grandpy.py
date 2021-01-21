@@ -1,7 +1,7 @@
 """ V1.0--cleaning coding"""
 import requests
 import os
-from parse_question import parsing
+from .parse_question import parsing
 
 
 class req_grandpy:
@@ -12,7 +12,6 @@ class req_grandpy:
         self.pageid = ""
         self.right_place = ""
         self.api_key = os.environ['GOOGLE_KEY']
-        # self.api_key = 'AIzaSyAKfLjoRy19P25S1KUOorpwBJ-psQ5oRg4'
 
     def parse(self, user_raw_text):
         list_question = parsing(user_raw_text)
