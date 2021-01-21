@@ -11,7 +11,10 @@ class req_grandpy:
         self.dict_return_wiki = {}
         self.pageid = ""
         self.right_place = ""
-        self.api_key = os.environ['GOOGLE_KEY']
+        # self.api_key = os.environ['GOOGLE_KEY']
+        # self.owp_key = os.environ['OWM_KEY']
+        self.owp_key = '8dae11ef973d40a3a6c0a719ee2a13cb'
+        self.api_key = 'AIzaSyAKfLjoRy19P25S1KUOorpwBJ-psQ5oRg4'
 
     def parse(self, user_raw_text):
         list_question = parsing(user_raw_text)
@@ -57,9 +60,23 @@ class req_grandpy:
                 title[place[i]["title"]] = info_place
         self.right_place = place[1]["title"]
         self.pageid = place[1]["pageid"]
-        print(self.pageid)
-        print(self.right_place)
+        # print(self.pageid)
+        # print(self.right_place)
         return self.dict_return_wiki
+
+    def search_by_openweathermap(self):
+        owp_information = requests.get("http://api.openweathermap.org/data/2.5/weather?lat="
+        + str(self.dict_return["latitude"])
+        + "&lon="+ str(self.dict_return["longitude"])+
+        "&appid="
+        +self.owp_key 
+        +"&lang=fr")
+        owp_information = owp_information.json()
+        # for temp in owp_information['name']:
+        main = owp_information['main']
+        temp = main["temp"]
+        self.celcius = ((temp-32)/2)
+        # print(celcius)
 
     def search_by_wiki_bio(self):
         wiki_information = requests.get(
@@ -74,4 +91,6 @@ class req_grandpy:
         extract = page_id["extract"]
         self.dict_return_wiki["extract"] = extract[0:500]
         self.dict_return_wiki["pageid"] = self.pageid
+        self.dict_return_wiki["celcius"] = self.celcius
         return self.dict_return_wiki
+    

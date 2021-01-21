@@ -23,6 +23,7 @@ def req_for_api():
     objet.parse(req.args.get("user_raw_text"))
     objet.search_by_google()
     objet.search_by_wiki()
+    objet.search_by_openweathermap()
     dict_return = objet.search_by_wiki_bio()
 
     response = app.response_class(
