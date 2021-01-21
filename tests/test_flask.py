@@ -10,7 +10,6 @@ def test_request_google(monkeypatch):
     dico_grandpy_google = {
         'latitude': '48.85837009999999',
         'longitude': '2.2944813',
-        'pays': 'FR',
     }
 
     class MockRequestsGet_Google:
