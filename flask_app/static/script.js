@@ -15,11 +15,11 @@ function grandpyAnswer(){
       var pageid = data.pageid
       var id_map = "map_"+compteur
       var celcius = data.celcius
+      var right_place = data.right_place
       $("#chat ul").append('<li class="answer"><div class="speech-bubble" style= maxheight="100px">' + extract + '</div></li>');
-      $("#chat ul").append('<li class="answer"><div class="speech-bubble" style= maxheight="100px">' + extract + '</div></li>');
-      $("#chat ul").append('<li class="answer"><div class="speech-bubble"><a href="https://fr.wikipedia.org/?curid=' +  + '" target="_blank">Voir plus directement sur Wikipedia</a></div></li>');
+      $("#chat ul").append('<li class="answer"><div class="speech-bubble"><a href="https://fr.wikipedia.org/?curid=' + pageid + '" target="_blank">Voir plus directement sur Wikipedia</a></div></li>');
       $("#chat ul").append('<div class="answer"><div class="speech-bubble"><div id="' + id_map + '" style="width:400px;height:400px"></div></div></div>');
-      $("#chat ul").append('<li class="answer"><div class="speech-bubble" style= maxheight="100px">' + celcius + '</div></li>');
+      $("#chat ul").append('<li class="answer"><div class="speech-bubble" style= maxheight="100px"> Il fait ' +" "+ celcius +" "+ 'degrés celcius  à' + " " + right_place + "  " +' </div></li>');
       console.log("Succès");
       console.log(pageid);
       create_map(data["latitude"],data["longitude"],id_map)
@@ -29,7 +29,7 @@ function grandpyAnswer(){
     //     $("#chat ul").append('<div class="answer"><div class="speech-bubble"><div id="map" style="width:400px;height:400px"></div></div></div>');
     //     console.log("Succès");
     }).fail(function() {
-        $("#chat ul").append('<li class="answer"><div class="speech-bubble">Je ne me souviens plus</div></li>');
+        $("#chat ul").append('<li class="answer"><div class="speech-bubble">Je ne me souviens plus de rien</div></li>');
         console.log("Echec");
         create_map(data["latitude"],data["longitude"],id_map)
     });
