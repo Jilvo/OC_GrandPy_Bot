@@ -26,7 +26,6 @@ function grandpyAnswer(){
     //     console.log("Succès");
     }).fail(function() {
         $("#chat ul").append('<li class="answer"><div class="speech-bubble">Je ne me souviens plus</div></li>');
-        $("#chat ul").append('<div class="answer"><div class="speech-bubble"><div id="' + id_map + '" style="width:400px;height:400px"></div></div></div>');
         console.log("Echec");
         create_map(data["latitude"],data["longitude"],id_map)
     });

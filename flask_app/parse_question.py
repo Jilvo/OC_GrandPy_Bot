@@ -1,4 +1,4 @@
-""" V0.9--cleaning coding"""
+""" V1.0--cleaning coding"""
 
 
 def parsing(question):

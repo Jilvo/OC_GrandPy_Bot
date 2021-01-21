@@ -1,8 +1,8 @@
-""" V0.9--cleaning coding"""
+""" V1.0--cleaning coding"""
 import sys
 import os
 sys.path.append(f"{os.getcwd()}/flask_app/")
-from .grandpy import req_grandpy
+from grandpy import req_grandpy
 
 
 def test_request_google(monkeypatch):
@@ -10,6 +10,7 @@ def test_request_google(monkeypatch):
     dico_grandpy_google = {
         'latitude': '48.85837009999999',
         'longitude': '2.2944813',
+        'pays': 'FR',
     }
 
     class MockRequestsGet_Google:

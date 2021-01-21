@@ -1,4 +1,5 @@
 oc_7_env/
+/oc_7_env/
 .vscode/
 tests/test_pybot_google.py
 __pycache__/
