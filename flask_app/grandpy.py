@@ -14,6 +14,7 @@ class req_grandpy:
         self.api_key = os.environ['GOOGLE_KEY']
         self.owp_key = os.environ['OWM_KEY']
 
+
     def parse(self, user_raw_text):
         list_question = parsing(user_raw_text)
         self.adress = "+".join(list_question)
@@ -34,6 +35,9 @@ class req_grandpy:
                 longitude = dict_lat_lng["location"]["lng"]
                 self.dict_return["latitude"] = latitude
                 self.dict_return["longitude"] = longitude
+                self.adresse = geometry["formatted_address"]
+                self.dict_return["formatted_address"] = self.adresse
+                print(self.adresse)
                 return self.dict_return
 
     def search_by_wiki(self):
@@ -72,10 +76,13 @@ class req_grandpy:
         owp_information = owp_information.json()
         # for temp in owp_information['name']:
         main = owp_information['main']
-        self.lieu = owp_information["name"]
-        temp = main["temp"]
-        self.celcius = round((temp-32)/2)
+        temp_kelvin = main["temp"]
+        for desc in owp_information["weather"]:
+            self.description_weather = desc["description"]
+            print(self.description_weather)
+        self.celcius = round(temp_kelvin-273,0)
         print(self.celcius)
+        return main
 
     def search_by_wiki_bio(self):
         wiki_information = requests.get(
@@ -91,6 +98,7 @@ class req_grandpy:
         self.dict_return_wiki["extract"] = extract[0:500]
         self.dict_return_wiki["pageid"] = self.pageid
         self.dict_return_wiki["celcius"] = self.celcius
-        self.dict_return_wiki["right_place"] = self.lieu
+        self.dict_return_wiki["description_weather"] = self.description_weather
+        self.dict_return_wiki["right_place"] = self.dict_return["formatted_address"]
         return self.dict_return_wiki
     

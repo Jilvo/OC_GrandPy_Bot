@@ -6,3 +6,5 @@ __pycache__/
 flask_app/__pycache__/
 venv
 __init__.py
+htmlcov/
+.coverage

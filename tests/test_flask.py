@@ -2,12 +2,13 @@
 import sys
 import os
 sys.path.append(f"{os.getcwd()}/flask_app/")
-from grandpy import req_grandpy
+from .grandpy import req_grandpy
 
 
 def test_request_google(monkeypatch):
     os.environ["GOOGLE_KEY"] = "1"
     dico_grandpy_google = {
+        "formatted_address": "Statue of Liberty National Monument, New York, NY 10004, USA",
         'latitude': '48.85837009999999',
         'longitude': '2.2944813',
     }
@@ -22,6 +23,7 @@ def test_request_google(monkeypatch):
             self.dict_test = {
                 'results': [
                     {
+                        "formatted_address": "Statue of Liberty National Monument, New York, NY 10004, USA",
                         'geometry': {
                             'location': {
                                 'lat': '48.85837009999999',
@@ -71,29 +73,43 @@ def test_request_wiki(monkeypatch):
     assert dict_wiki == dico_grandpy_wiki
 
 
-def test_request_wiki_bio(monkeypatch):
-    os.environ["GOOGLE_KEY"] = "1"
-    dico_grandpy_wiki_bio = {"pageid": 9232, "extract": "Paris is a city"}
+def test_request_openweathermap(monkeypatch):
+    os.environ["OWM_KEY"] = "1"
+    dico_grandpy_owm = {"temp": 280.85,
+        "feels_like": 278.04,
+        "temp_min": 280.15,
+        "temp_max": 281.48,
+        "pressure": 996,
+        "humidity": 76
+        }
 
-    class MockRequestsGet_Wiki_Bio:
+    class MockRequestsGet_OpenWeather:
         def __init__(self, url, params=None):
             self.status_code = 200
-            self.dict_test_wiki_bio = {}
+            self.dict_test_owm = {}
 
         def json(self):
-            self.dict_test_wiki_bio = {
-                "query": {
-                    "pages": {
-                        "9232": {"pageid": 9232, "extract": "Paris is a city"}
-                    }
+            self.dict_test_owm = {
+                "main": {
+                    "temp": 280.85,
+                    "feels_like": 278.04,
+                    "temp_min": 280.15,
+                    "temp_max": 281.48,
+                    "pressure": 996,
+                    "humidity": 76
                 }
             }
-            return self.dict_test_wiki_bio
+            return self.dict_test_owm
 
-    monkeypatch.setattr('requests.get', MockRequestsGet_Wiki_Bio)
+    monkeypatch.setattr('requests.get', MockRequestsGet_OpenWeather)
 
     object_from_import_class = req_grandpy()
-    object_from_import_class.pageid = 9232
-    dict_wiki_bio = object_from_import_class.search_by_wiki_bio()
-    assert dict_wiki_bio == dico_grandpy_wiki_bio
+    object_from_import_class.dict_return = {'latitude' : '48.8583','longitude' : '2.2944813','pageid' : '1359783','title' : 'Tour Eiffel',}
+    dict_owm = object_from_import_class.search_by_openweathermap()
+    assert dict_owm == dico_grandpy_owm
+
+
+
+
+
 
