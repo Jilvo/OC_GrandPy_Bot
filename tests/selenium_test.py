@@ -9,17 +9,40 @@ class fail_test(unittest.TestCase):
         self.driver = webdriver.Chrome(PATH)
 
     def test_search_in_python_org(self):
-        log_dic = {'Succés'}
+        false_answer = 'Je ne me souviens plus de rien'
         self.driver.get("https://grandpy-jilvo.herokuapp.com/")
-        self.driver.find_element_by_id("user_input").send_keys("Paris")
+        self.driver.find_element_by_id("user_input").send_keys("fdpghfwjfdg")
         element = self.driver.find_element_by_id("api_google")
         element.click()
-        data = self.driver.get_log('browser')
-        print(data)
-        time.sleep(1)
+        time.sleep(3)
+        element_test = self.driver.find_element_by_id("test_bubble").text
+        print(element_test)
+        time.sleep(3)
         self.driver.quit()
-        assert log_dic == data
+        assert false_answer == element_test
     def tearDown(self):
+        time.sleep(3)
+        self.driver.quit()
+
+class success_test(unittest.TestCase):
+    def setUp(self):
+        PATH = "C:\\Program Files (x86)\\chromedriver.exe"
+        self.driver = webdriver.Chrome(PATH)
+
+    def test_search_in_python_org(self):
+        true_answer = 'Assis toi, je vais tout te raconter'
+        self.driver.get("https://grandpy-jilvo.herokuapp.com/")
+        self.driver.find_element_by_id("user_input").send_keys("Où est le mont Fugi ?")
+        element = self.driver.find_element_by_id("api_google")
+        element.click()
+        time.sleep(3)
+        element_test = self.driver.find_element_by_id("test_bubble").text
+        print(element_test)
+        time.sleep(3)
+        self.driver.quit()
+        assert true_answer == element_test
+    def tearDown(self):
+        time.sleep(3)
         self.driver.quit()
 
 

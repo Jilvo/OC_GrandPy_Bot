@@ -1,7 +1,7 @@
 """ V1.1--update for project 11"""
 import requests
 import os
-from .parse_question import parsing
+from parse_question import parsing
 
 
 class req_grandpy:
