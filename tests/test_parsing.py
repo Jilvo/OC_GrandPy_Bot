@@ -14,3 +14,13 @@ def test_parsing():
         )
         == results
     )
+
+def test_error():
+    """This function testing """
+    results = ['dhvhsvhsdvsjhjshvsbdhsvb']
+    assert (
+        parsing(
+            "dhvhsvhsdvsjhjshvsbdhsvb"
+        )
+        == results
+    )

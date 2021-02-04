@@ -9,7 +9,7 @@ function grandpyAnswer(){
     url = `api_google?user_raw_text=${user_input_value}`;
 
     $.get(url, function (data, status){
-      console.log(data)
+      // console.log(data)
       compteur++
       var extract = data.extract
       var pageid = data.pageid
@@ -22,7 +22,7 @@ function grandpyAnswer(){
       $("#chat ul").append('<div class="answer"><div class="speech-bubble"><div id="' + id_map + '" style="width:400px;height:400px"></div></div></div>');
       $("#chat ul").append('<li class="answer"><div class="speech-bubble" style= maxheight="100px"> Il fait ' +" "+ celcius +" "+ 'degrés celcius  à' + " " + right_place + "  " + "et le temps est " + description_weather + " " + '</div></li>');
       console.log("Succès");
-      console.log(pageid);
+      // console.log(pageid);
       create_map(data["latitude"],data["longitude"],id_map)
     // })
     // .done(function(response){       

@@ -2,7 +2,7 @@
 import sys
 import os
 sys.path.append(f"{os.getcwd()}/flask_app/")
-from .grandpy import req_grandpy
+from grandpy import req_grandpy
 
 
 def test_request_google(monkeypatch):
@@ -80,7 +80,7 @@ def test_request_openweathermap(monkeypatch):
         "temp_min": 280.15,
         "temp_max": 281.48,
         "pressure": 996,
-        "humidity": 76
+        "humidity": 76,
         }
 
     class MockRequestsGet_OpenWeather:
@@ -90,6 +90,14 @@ def test_request_openweathermap(monkeypatch):
 
         def json(self):
             self.dict_test_owm = {
+                "weather": [
+                            {
+                                "id": 804,
+                                "main": "Clouds",
+                                "description": "couvert",
+                                "icon": "04d"
+                            }
+                ],
                 "main": {
                     "temp": 280.85,
                     "feels_like": 278.04,
@@ -107,6 +115,7 @@ def test_request_openweathermap(monkeypatch):
     object_from_import_class.dict_return = {'latitude' : '48.8583','longitude' : '2.2944813','pageid' : '1359783','title' : 'Tour Eiffel',}
     dict_owm = object_from_import_class.search_by_openweathermap()
     assert dict_owm == dico_grandpy_owm
+    
 
 
 
