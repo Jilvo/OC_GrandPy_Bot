@@ -14,6 +14,8 @@ class req_grandpy:
         self.api_key = os.environ['GOOGLE_KEY']
         self.owp_key = os.environ['OWM_KEY']
 
+        
+
     def parse(self, user_raw_text):
         list_question = parsing(user_raw_text)
         self.adress = "+".join(list_question)
