@@ -9,7 +9,7 @@ function grandpyAnswer(){
     url = `api_google?user_raw_text=${user_input_value}`;
 
     $.get(url, function (data, status){
-      // console.log(data)
+      console.log(data)
       compteur++
       var extract = data.extract
       var pageid = data.pageid
@@ -17,13 +17,13 @@ function grandpyAnswer(){
       var celcius = data.celcius
       var right_place = data.right_place
       var description_weather = data.description_weather
-      $("#chat ul").append('<li class="answer"><div class="speech-bubble" id="test_bubble>Assis toi je vais tout te raconter</div></li>');
+      $("#chat ul").append('<li class="answer"><div class="speech-bubble" id="test_buble">Assis toi, je vais tout te raconter</div></li>');
       $("#chat ul").append('<li class="answer"><div class="speech-bubble" style= maxheight="100px">' + extract + '</div></li>');
       $("#chat ul").append('<li class="answer"><div class="speech-bubble"><a href="https://fr.wikipedia.org/?curid=' + pageid + '" target="_blank">Voir plus directement sur Wikipedia</a></div></li>');
       $("#chat ul").append('<div class="answer"><div class="speech-bubble"><div id="' + id_map + '" style="width:400px;height:400px"></div></div></div>');
       $("#chat ul").append('<li class="answer"><div class="speech-bubble" style= maxheight="100px"> Il fait ' +" "+ celcius +" "+ 'degrés celcius  à' + " " + right_place + "  " + "et le temps est " + description_weather + " " + '</div></li>');
       console.log("Succès");
-      // console.log(pageid);
+      console.log(pageid);
       create_map(data["latitude"],data["longitude"],id_map)
     // })
     // .done(function(response){       
@@ -31,7 +31,7 @@ function grandpyAnswer(){
     //     $("#chat ul").append('<div class="answer"><div class="speech-bubble"><div id="map" style="width:400px;height:400px"></div></div></div>');
     //     console.log("Succès");
     }).fail(function() {
-        $("#chat ul").append('<li class="answer"><div class="speech-bubble" id="test_bubble>Je ne me souviens plus de rien</div></li>');
+        $("#chat ul").append('<li class="answer"><div class="speech-bubble" id="test_buble">Je ne me souviens plus de rien</div></li>');
         console.log("Echec");
         create_map(data["latitude"],data["longitude"],id_map)
     });
